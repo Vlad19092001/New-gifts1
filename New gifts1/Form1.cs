@@ -28,5 +28,15 @@ namespace New_gifts1
         {
             Initialize();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Typeofchocolate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
