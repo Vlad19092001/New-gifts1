@@ -76,6 +76,7 @@
             this.Delete.TabIndex = 1;
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = false;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // Sort
             // 
@@ -87,6 +88,7 @@
             this.Sort.TabIndex = 2;
             this.Sort.Text = "Sort";
             this.Sort.UseVisualStyleBackColor = false;
+            this.Sort.Click += new System.EventHandler(this.Sort_Click);
             // 
             // Find
             // 
@@ -98,6 +100,7 @@
             this.Find.TabIndex = 3;
             this.Find.Text = "Find";
             this.Find.UseVisualStyleBackColor = false;
+            this.Find.Click += new System.EventHandler(this.Find_Click);
             // 
             // Add
             // 

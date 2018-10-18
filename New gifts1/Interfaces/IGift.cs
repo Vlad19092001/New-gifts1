@@ -1,11 +1,7 @@
-﻿using ConsoleApp5.classes;
-using System;
+﻿using New_gifts1.classes;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApp5.interfaces
+namespace NewGifts1.interfaces
 {
     public interface IGift
     {
@@ -14,7 +10,7 @@ namespace ConsoleApp5.interfaces
         string NameGift { get; }
         IEnumerable<ISweetness> Items { get; }
         IEnumerable<ISweetness> SortSweetnessByWeight();
-        IEnumerable<ISweetness> FindSweetnessBySugar(int min, int max);
+        IEnumerable<ISweetness> FindSweetnessBySugar(double min, double max);
         void AddSweet(Sweet sweet);
         void RemoveSweet(Sweet sweet);
     }
