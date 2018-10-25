@@ -78,7 +78,7 @@ namespace New_gifts1
             int j = 0;
             foreach (var i in temp)
             {
-                listBox1.Items.Insert(j, String.Format("Name: {0}," + "SugarPerUnit: {1}", i.Name, i.SugarPerUnit));
+                listBox1.Items.Insert(j, String.Format("Name: {0}," + "SugarPerUnit: {1}", i.Name, i.Vec));
                 j++;
             }
         }
@@ -91,12 +91,13 @@ namespace New_gifts1
          
             double min = Convert.ToDouble(minsugar.Text);
             double max = Convert.ToDouble(maxsugar.Text);
-
-            var temp = _gift.FindSweetnessBySugar(min, max); foreach (var i in temp)
+            var temp = _gift.FindSweetnessBySugar(min, max);
+            foreach (var i in temp)
             {
                 listBox1.Items.Insert(j, String.Format("Name: {0}," + "SugarPerUnit: {1}", i.Name, i.SugarPerUnit));
                 j++;
             }
+           
         }
     }
 }

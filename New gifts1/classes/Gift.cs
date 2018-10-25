@@ -1,9 +1,7 @@
-﻿using New_gifts1.interfaces;
+﻿using NewGifts1.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace New_gifts1.classes
 {
@@ -15,46 +13,51 @@ namespace New_gifts1.classes
         {
             get { return sweetnessitems; }
         }
-
-       
-
         public string NameGift { get; }
-
-        public double Vec => throw new NotImplementedException();
-
-        public int CountOfSweet => throw new NotImplementedException();
-
-        public Gift (string namegift, ICollection<ISweetness> items)
+        public Gift(string name, ICollection<ISweetness> items)
         {
-
             sweetnessitems = items;
-            NameGift = namegift;
-
+            NameGift = name;
         }
-
-       public void AddSweet(Sweet sweet)
+        public void AddSweet(Sweet sweet)
         {
-            throw new NotImplementedException();
+            sweetnessitems.Add(sweet);
         }
-
         public void RemoveSweet(Sweet sweet)
         {
-            throw new NotImplementedException();
+            sweetnessitems.Remove(sweet);
         }
-
+        public int CountOfSweet
+        {
+            get { return sweetnessitems.Count(); }
+        }
+        public double Vec
+        {
+            get
+            {
+                if (sweetnessitems != null)
+                {
+                    return sweetnessitems.Sum(x => x.Vec);
+                }
+                else
+                {
+                    //реализовать обработку исключения
+                    throw new InvalidOperationException("Container in Gift cannot be null");
+                }
+            }
+        }
         public IEnumerable<ISweetness> SortSweetnessByWeight()
         {
-            throw new NotImplementedException();
+            //сделать универсальным (можно добавить вспомогательный класс)
+            var temp = sweetnessitems.OrderBy(x => x.Vec).ToArray();
+            return temp;
+        }
+        public IEnumerable<ISweetness> FindSweetnessBySugar(double min, double max)
+        {
+
+            return sweetnessitems.Where(x => (x.SugarPerUnit >= min) && (x.SugarPerUnit <= max)).ToList();
+
         }
 
-        public IEnumerable<ISweetness> FindSweetnessBySugar(int min, int max)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IGift.RemoveSweet(Sweet sweet)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
